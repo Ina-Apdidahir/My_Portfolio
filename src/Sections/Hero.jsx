@@ -3,6 +3,7 @@ import React from 'react'
 import AALi from '../assets/PORT_images/AALI.png'
 
 const Hero = () => {
+  
   return (
     <div className=" w-full max-container min-h-screen bg-black px-2 overflow-hidden">
       <div className=" w-full max-container  min-h-screen flex justify-center flex-col lg:flex-row lg:items-center bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]">
