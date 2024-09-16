@@ -27,7 +27,7 @@ const App = () => (
     <section className=" padding ">
       < Works />
     </section>
-    <section className=" padding ">
+    <section className=" padding overflow-x-hidden">
       < Services />
     </section>
     <section className=" padding ">
