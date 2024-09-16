@@ -33,8 +33,20 @@ const App = () => (
     <section className=" padding ">
       <Resume />
     </section>
-    <section className=" padding ">
-      < Testimonial />
+    <section className="  bg-black relative ">
+      <div //red and white
+        className=" bg-[radial-gradient(circle_farthest-side,rgba(253,253,21,.15),rgba(255,255,255,0))]"
+      >
+        <div //white in the midle
+          className="rounded-full bg-[radial-gradient(circle_farthest-side,rgba(253,21,0,.5),rgba(255,255,255,0))]"
+        >
+          <div //back ground pattern
+            className="  px-[4rem] pt-14  bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"
+          >
+            < Testimonial />
+          </div>
+        </div>
+      </div>
     </section>
     <section className=" padding ">
       < Blog />
@@ -54,4 +66,4 @@ const App = () => (
 export default App
 
 
-{/* <div class="absolute top-0 z-[-2] h-screen w-screen bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]"></div> */}
+{/* <div class="absolute top-0 z-[-2] h-screen w-screen bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]"></div> */ }
