@@ -54,10 +54,9 @@ const Header = () => {
           className={`fixed top-0 left-0 w-full h-screen bg-[rgba(0,0,0,0.75)] backdrop-blur-sm z-20 transition-all duration-500 transform ${showNav ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
             }`}
         >
-          <div className="max-container pt-12 flex flex-col bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]">
+          <div className="max-container pt-12 flex flex-col bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] max-h-screen overflow-y-auto">
 
-
-            <ul className="p-12 flex flex-col items-center justify-center gap-8 lg:hidden">
+          <ul className="p-4 pt-[4rem] flex flex-col items-center justify-center gap-4 lg:hidden overflow-y-auto max-h-[calc(100vh-24px)]">
               <li className="px-2 py-2">
                 <a className="text-white hover:text-coral-red" href="#Home"
                   onClick={() => setShowNav((prev) => !prev)}

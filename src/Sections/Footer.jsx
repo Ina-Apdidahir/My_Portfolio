@@ -72,7 +72,7 @@ const Footer = () => {
 
       <div
         onClick={scrollToTop} // Add onClick event here
-        className={` lg:block h-32 w-14 bg-coral-red  absolute top-[-9rem] right-[-5rem] group transition-all  cursor-pointer duration-[5000ms] ${inView ? 'translate-x-[-6rem]' : ''}`}
+        className={` lg:block h-16 w-9 lg:h-32 lg:w-14 bg-coral-red  absolute top-[-9rem] right-[-7rem] lg:right-[-5rem] group transition-all  cursor-pointer duration-[5000ms] ${inView ? 'translate-x-[-6rem]' : ''}`}
       >
        <div className="w-full h-full flex flex-col justify-center items-center relative ">
        <svg 
