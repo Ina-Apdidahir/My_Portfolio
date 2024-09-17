@@ -20,25 +20,25 @@ const Header = () => {
 
         <ul className="flex flex-1 items-center justify-center gap-8 max-lg:hidden">
           <li className="px-2 py-2">
-            <a className="text-white hover:text-coral-red" href="">Home</a>
+            <a className="text-white hover:text-coral-red" href="#Home">Home</a>
           </li>
           <li className="px-2 py-2">
-            <a className="text-white hover:text-coral-red" href="">About</a>
+            <a className="text-white hover:text-coral-red" href="#About">About</a>
           </li>
           <li className="px-2 py-2">
-            <a className="text-white hover:text-coral-red" href="">Work</a>
+            <a className="text-white hover:text-coral-red" href="#Work">Work</a>
           </li>
           <li className="px-2 py-2">
-            <a className="text-white hover:text-coral-red" href="">Services</a>
+            <a className="text-white hover:text-coral-red" href="#Service">Services</a>
           </li>
           <li className="px-2 py-2">
-            <a className="text-white hover:text-coral-red" href="">Testimonials</a>
+            <a className="text-white hover:text-coral-red" href="#Testimonial">Testimonials</a>
           </li>
           <li className="px-2 py-2">
-            <a className="text-white hover:text-coral-red" href="">Blog</a>
+            <a className="text-white hover:text-coral-red" href="#Blog">Blog</a>
           </li>
           <li className="px-2 py-2">
-            <a className="text-white hover:text-coral-red" href="">Contact</a>
+            <a className="text-white hover:text-coral-red" href="#Contact">Contact</a>
           </li>
         </ul>
 
@@ -46,49 +46,52 @@ const Header = () => {
           <img
             className=' sm:ml-10 transition-all duration-300  '
             onClick={() => setShowNav((prev) => !prev)}
-            src={showNav ? close : Menu} width={30} alt="Menu" />
+            src={showNav ? close : Menu} width={26} alt="Menu" />
         </div>
 
         {/* Mobile Menu with Transition */}
         <div
-          className={`fixed top-0 left-0 w-full h-screen bg-[rgba(0,0,0,0.47)] backdrop-blur-sm z-20 transition-all duration-500 transform ${showNav ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
+          className={`fixed top-0 left-0 w-full h-screen bg-[rgba(0,0,0,0.75)] backdrop-blur-sm z-20 transition-all duration-500 transform ${showNav ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
             }`}
         >
           <div className="max-container pt-12 flex flex-col bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]">
-            {/* <img src={close}
-              className="w-8 text-whit-color absolute top-6 right-4 cursor-pointer"
-             alt="" /> */}
-            {/* <svg
-              onClick={handleCloseClick}
-              className="w-8 text-whit-color absolute top-6 right-4 cursor-pointer"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            > 
-              <path d="M10.5859 12L2.79297 4.20706L4.20718 2.79285L12.0001 10.5857L19.793 2.79285L21.2072 4.20706L13.4143 12L21.2072 19.7928L19.793 21.2071L12.0001 13.4142L4.20718 21.2071L2.79297 19.7928L10.5859 12Z"></path>
-            </svg>*/}
+
 
             <ul className="p-12 flex flex-col items-center justify-center gap-8 lg:hidden">
               <li className="px-2 py-2">
-                <a className="text-white hover:text-coral-red" href="">Home</a>
+                <a className="text-white hover:text-coral-red" href="#Home"
+                  onClick={() => setShowNav((prev) => !prev)}
+                >Home</a>
               </li>
               <li className="px-2 py-2">
-                <a className="text-white hover:text-coral-red" href="">About</a>
+                <a className="text-white hover:text-coral-red" href="#About"
+                  onClick={() => setShowNav((prev) => !prev)}
+                >About</a>
               </li>
               <li className="px-2 py-2">
-                <a className="text-white hover:text-coral-red" href="">Work</a>
+                <a className="text-white hover:text-coral-red" href="#Work"
+                  onClick={() => setShowNav((prev) => !prev)}
+                >Work</a>
               </li>
               <li className="px-2 py-2">
-                <a className="text-white hover:text-coral-red" href="">Services</a>
+                <a className="text-white hover:text-coral-red" href="#Service"
+                  onClick={() => setShowNav((prev) => !prev)}
+                >Services</a>
               </li>
               <li className="px-2 py-2">
-                <a className="text-white hover:text-coral-red" href="">Testimonials</a>
+                <a className="text-white hover:text-coral-red" href="#Testimonial"
+                  onClick={() => setShowNav((prev) => !prev)}
+                >Testimonials</a>
               </li>
               <li className="px-2 py-2">
-                <a className="text-white hover:text-coral-red" href="">Blog</a>
+                <a className="text-white hover:text-coral-red" href="#Blog"
+                  onClick={() => setShowNav((prev) => !prev)}
+                >Blog</a>
               </li>
               <li className="px-2 py-2">
-                <a className="text-white hover:text-coral-red" href="">Contact</a>
+                <a className="text-white hover:text-coral-red" href="#Contact"
+                  onClick={() => setShowNav((prev) => !prev)}
+                >Contact</a>
               </li>
             </ul>
           </div>

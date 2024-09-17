@@ -1,19 +1,50 @@
 
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react';
 import Logo from '../assets/PORT_images/AB.png'
 
 const Footer = () => {
+
+  const [inView, setInView] = useState(false);
+  const ElementRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+      },
+      { threshold: 0.3 } // Adjust this threshold to control when the animation starts
+    );
+
+    if (ElementRef.current) {
+      observer.observe(ElementRef.current);
+    }
+
+    return () => {
+      if (ElementRef.current) {
+        observer.unobserve(ElementRef.current);
+      }
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+
   return (
-    <div className=" w-full max-container flex flex-col space-y-14  relative">
-      
+    <div ref={ElementRef} className={` w-full max-container flex flex-col space-y-14  relative  ${inView ? 'transition-active' : ''}`}>
+
       <div className="w-full flex sm:justify-between sm:items-baseline flex-col sm:flex-row  space-y-7">
         <div className="relative w-full lg:w-[40%] flex items-baseline ">
-          <div className=" hidden lg:block w-44 h-[220px] justify-center items-center bg-transparent border-4 border-color-[#f0f0f0] z-0 top-[-10rem] left-[-1rem] absolute "></div>
+          <div className={` hidden lg:block w-44 h-[220px] justify-center items-center bg-transparent border-4 border-color-[#f0f0f0] z-0 top-[-10rem] left-[-1rem] absolute  transition-all duration-[5000ms] ${inView ? 'translate-y-[3rem]' : ''}`}> </div>
 
           <img src={Logo}
             className='w-[100px] z-0'
             alt="" />
-            <h1 className="font-bold text-[20px]">Bishar Abdidahir</h1>
+          <h1 className="font-bold text-[20px]">Bishar Abdidahir</h1>
         </div>
 
         <div className="w-full lg:w-[40%] flex mt-8 items-center space-x-4">
@@ -37,6 +68,22 @@ const Footer = () => {
             </svg>
           </div>
         </div>
+      </div>
+
+      <div
+        onClick={scrollToTop} // Add onClick event here
+        className={` lg:block h-32 w-14 bg-coral-red  absolute top-[-9rem] right-[-5rem] group transition-all  cursor-pointer duration-[5000ms] ${inView ? 'translate-x-[-6rem]' : ''}`}
+      >
+       <div className="w-full h-full flex flex-col justify-center items-center relative ">
+       <svg 
+        className=' opacity-0 w-8 text-whit-color absolute top-[40%] group-hover:opacity-[1] transition-all duration-[1000ms] group-hover:top-[30%]'
+        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9999 10.8284L7.0502 15.7782L5.63599 14.364L11.9999 8L18.3639 14.364L16.9497 15.7782L11.9999 10.8284Z"></path>
+        </svg>
+        <svg 
+        className=' w-8 text-whit-color '
+        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9999 10.8284L7.0502 15.7782L5.63599 14.364L11.9999 8L18.3639 14.364L16.9497 15.7782L11.9999 10.8284Z"></path>
+        </svg>
+       </div>
       </div>
 
       <div className=" w-full flex justify-center ">

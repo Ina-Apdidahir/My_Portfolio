@@ -1,7 +1,6 @@
 
 
-
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const ProgressBar = ({ label, percentage }) => {
   // Function to determine the color based on the percentage
@@ -27,9 +26,33 @@ const ProgressBar = ({ label, percentage }) => {
   );
 };
 
+
 const Skills = () => {
+
+  const [inView, setInView] = useState(false);
+  const ElementRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+      },
+      { threshold: 0.3 } // Adjust this threshold to control when the animation starts
+    );
+
+    if (ElementRef.current) {
+      observer.observe(ElementRef.current);
+    }
+
+    return () => {
+      if (ElementRef.current) {
+        observer.unobserve(ElementRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className="w-full max-container py-4 pb-20 lg:pb-10 flex flex-col space-y-12 lg:flex-row lg:space-x-5 lg:space-y-0 justify-center ">
+    <div ref={ElementRef} className= {`w-full max-container py-4 pb-20 lg:pb-10 flex flex-col space-y-12 lg:flex-row lg:space-x-5 lg:space-y-0 justify-center relative  ${inView ? 'transition-active' : ''} `}>
       <div className="w-full lg:w-1/2">
         <p className=" font-bold text-[20px] text-whit-color ">My skills</p>
         <h3 className="font-bold text-[30px] mb-6 mt-3 text-whit-color">
@@ -45,6 +68,10 @@ const Skills = () => {
         <ProgressBar label="Front-end" percentage={98} />
         <ProgressBar label="Back-end" percentage={70} />
       </div>
+         
+      <div
+        className= {`hidden lg:block w-[250px] h-[350px] justify-center items-center bg-transparent border-4 border-color-[#f0f0f0] z-0 bottom-[-20rem] left-[-10rem] absolute transition-all duration-[5000ms] ${inView ?'translate-x-[4rem]' : ''}`}
+      ></div>
     </div>
   );
 };

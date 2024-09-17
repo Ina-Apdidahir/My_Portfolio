@@ -1,13 +1,37 @@
 
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react';
 import service from '../assets/PORT_images/service.png'
 
 const Services = () => {
+
+  const [inView, setInView] = useState(false);
+  const ElementRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+      },
+      { threshold: 0.3 } // Adjust this threshold to control when the animation starts
+    );
+
+    if (ElementRef.current) {
+      observer.observe(ElementRef.current);
+    }
+
+    return () => {
+      if (ElementRef.current) {
+        observer.unobserve(ElementRef.current);
+      }
+    };
+  }, []);
+
+
   return (
-    <div className=" w-full max-container flex flex-col lg:space-x-6 space-y-4 lg:flex-row flex-wrap relative ">
+    <div ref={ElementRef} className= {`w-full max-container flex flex-col lg:space-x-6 space-y-4 lg:flex-row flex-wrap relative  ${inView ? 'transition-active' : ''}`}>
       
-      <div className=" hidden lg:block w-1/5 h-1/6 bg-coral-red absolute  lg:top-[-5rem] lg:right-[-12rem] z-0"></div>
-      <div className=" hidden lg:block w-1/4 h-1/6 bg-slate-900 absolute lg:bottom-[-5rem] lg:left-[-12rem] z-0"></div>
+      <div className={` hidden lg:block w-1/5 h-1/6 bg-coral-red absolute  lg:top-[-5rem] lg:right-[-12rem] z-0 transition-all duration-[5000ms] ${inView ?'translate-y-[3rem]' : ''}`}></div>
+      <div className= {`hidden lg:block w-1/4 h-1/6 bg-slate-900 absolute lg:bottom-[-8rem] lg:left-[-12rem]  transition-all duration-[5000ms] ${inView ?'translate-y-[-3rem]' : ''}`}></div>
 
       <div className=" w-full lg:w-[46%] ">
         <p className=" font-bold text-[20px] text-coral-red ">  What I Do </p>
@@ -19,7 +43,7 @@ const Services = () => {
         </p>
       </div>
 
-      <div className=" transition-container w-full lg:w-[46%] px-5 py-7 rounded-lg bg-white-200flex justify-center flex-col lg:flex-row lg:space-x-4 ">
+      <div className= {`transition-container w-full lg:w-[46%] px-5 py-7 ml-14 opacity-0 rounded-lg bg-white-200flex justify-center flex-col lg:flex-row lg:space-x-4 transition-all duration-[3000ms] ${inView ?'translate-x-[-4rem] opacity-[1]' : ''}`}>
         <div className=" w-[50px] pb-5 pt-2 ">
           <img src={service} alt="" className=" w-full" />
         </div>
@@ -34,7 +58,7 @@ const Services = () => {
         </div>
       </div>
 
-      <div className=" transition-container w-full lg:w-[46%] px-5 py-7 rounded-lg bg-white-200flex justify-center flex-col lg:flex-row  lg:space-x-4">
+      <div className={`transition-container w-full lg:w-[46%] px-5 py-7 mr-14 opacity-0 rounded-lg bg-white-200flex justify-center flex-col lg:flex-row lg:space-x-4 transition-all duration-[3000ms] ${inView ?'translate-x-[-0.5rem] opacity-[1]' : ''}`}>
         <div className=" w-[50px] pb-5 pt-2 ">
           <img src={service} alt="" className=" w-full" />
         </div>
@@ -49,7 +73,7 @@ const Services = () => {
         </div>
       </div>
 
-      <div className=" transition-container w-full lg:w-[46%] px-5 py-7 rounded-lg bg-white-200flex justify-center flex-col lg:flex-row lg:space-x-4 ">
+      <div className={`transition-container w-full lg:w-[46%] px-5 py-7 ml-14 opacity-0 rounded-lg bg-white-200flex justify-center flex-col lg:flex-row lg:space-x-4 transition-all duration-[3000ms] ${inView ?'translate-x-[-4rem] opacity-[1]' : ''}`}>
         <div className=" w-[50px] pb-5 pt-2 ">
           <img src={service} alt="" className=" w-full" />
         </div>
@@ -64,7 +88,7 @@ const Services = () => {
         </div>
       </div>
 
-      <div className=" transition-container w-full lg:w-[46%] px-5 py-7 rounded-lg bg-white-200flex justify-center flex-col lg:flex-row lg:space-x-4 ">
+      <div className={`transition-container w-full lg:w-[46%] px-5 py-7 mr-14 opacity-0 rounded-lg bg-white-200flex justify-center flex-col lg:flex-row lg:space-x-4 transition-all duration-[3000ms] ${inView ?'translate-x-[-0.5rem] opacity-[1]' : ''}`}>
         <div className=" w-[50px] pb-5 pt-2 ">
           <img src={service} alt="" className=" w-full" />
         </div>
