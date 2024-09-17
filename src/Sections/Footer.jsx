@@ -8,7 +8,7 @@ const Footer = () => {
       
       <div className="w-full flex sm:justify-between sm:items-baseline flex-col sm:flex-row  space-y-7">
         <div className="relative w-full lg:w-[40%] flex items-baseline ">
-          <div className=" hidden lg:block w-44 h-[220px] flex justify-center items-center bg-transparent border-4 border-color-[#f0f0f0] z-0 top-[-10rem] left-[-1rem] absolute "></div>
+          <div className=" hidden lg:block w-44 h-[220px] justify-center items-center bg-transparent border-4 border-color-[#f0f0f0] z-0 top-[-10rem] left-[-1rem] absolute "></div>
 
           <img src={Logo}
             className='w-[100px] z-0'
